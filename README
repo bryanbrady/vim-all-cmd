@@ -1,0 +1,43 @@
+vim-all-cmd plugin
+===============================================================================
+
+Authors: Garrett Drapala
+         Bryan Brady
+
+
+Overview
+---------------------
+
+This plug-in is the result of a long search to replicate ve's "all"
+command in vim.
+
+
+What is provided
+------------------------
+
+The plug-in provides two global commands:
+
+    :All <pattern>
+    :EAll <pattern>
+
+(The only difference between All and EAll is that All uses grep to filter lines
+while EAll uses egrep.  Therefore, for patterns with complex regular
+expression, use EAll instead of All.)
+
+Advantages relative to ve
+----------------------------------------------------
+
+    0. access to full vim/gvim functionality :)
+    1. multiple "all" windows may be open at the same time (without manually
+    renaming)
+    2. search buffers are named after the search pattern
+    3. search buffers are scratch buffers
+
+
+Similarities to ve
+----------------------------------------------------
+
+    1. search buffers have the same syntax highlighting applied
+    2. Ctrl-Q is mapped to jump back and forth between original file and the
+    last all search buffer.
+
