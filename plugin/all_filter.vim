@@ -6,7 +6,7 @@
 "
 
 
-if !has('python')
+if !has('python3')
     " exit if python is not available.
     finish
 endif
@@ -53,7 +53,7 @@ if !exists('g:use_default_all_filter_mappings') || (g:use_default_all_filter_map
 endif
 
 let s:plugin_path = escape(expand('<sfile>:p:h'), '\')
-exe 'pyfile ' . s:plugin_path . '/all_filter.py'
+exe 'py3file ' . s:plugin_path . '/all_filter.py'
 
 function! GetFields(start, stop, delim)
     " Return fields [start:stop] of the current line, split on *delim*
@@ -68,7 +68,7 @@ endfunction
 
 
 function! NewAllBuffer(search, grep_cmd, ...)
-python <<PYTHON
+python3 <<PYTHON
 e = vim.eval
 flags = ''
 if int(e("a:0")) > 0:
@@ -89,7 +89,7 @@ function! ShowLines(pattern)
 endfunction
 
 function! TestPy()
-python <<PYTHON
+python3 <<PYTHON
 toks=vim.current.line.split()
 vim.command(r"return '%s'"%(",".join(toks)))
 PYTHON
