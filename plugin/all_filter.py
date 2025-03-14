@@ -69,8 +69,8 @@ def throw(msg):
 
 
 def escape_title(search):
-    title = search.replace("|", "\|").replace(r'\b', '')
-    title = title.replace("\"", "\\\"").replace(" ", "\ ")
+    title = search.replace("|", r"\|").replace(r'\b', '')
+    title = title.replace("\"", r"\\\"").replace(" ", r"\ ")
     return title
 
 
@@ -172,9 +172,9 @@ def create_ctrl_q_maps(source, dest_bnum):
     # create map to original buffer from search buffer
     vim.command("silent b %d" % dest_bnum)
     vim.command("let %s=%s" % (ALL_ORIGINAL_BNUM, source['bnum']))
-    vim.command('map <buffer> <C-q> :let @z=GetFields(0,0,":")\|'
-                'exec "buffer" %s\|'
-                'exec "normal ".getreg("z")."Gzz"<CR>' % ALL_ORIGINAL_BNUM)
+    vim.command(r'map <buffer> <C-q> :let @z=GetFields(0,0,":")\|'
+                r'exec "buffer" %s\|'
+                r'exec "normal ".getreg("z")."Gzz"<CR>' % ALL_ORIGINAL_BNUM)
 
 
 def last_all_buffer_num():
